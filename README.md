@@ -1,0 +1,2 @@
+# BrandonMuneton-pe.com.linio.wwwBME
+Reto de automatización El objetivo de este reto es validar sus conocimientos en automatización web y su capacidad de autoaprendizaje. Debe crear un proyecto que cumpla con los siguientes criterios: Uso del patrón ScreenPlay Lenguaje de programación Java Proyecto construido con Gradle Uso de JUnit Automatización con Serenity BDD Control de versiones con Git Conocimientos y aplicación de principios SOLID Escritura de historias con Cucumber Implementación con RestAssured
