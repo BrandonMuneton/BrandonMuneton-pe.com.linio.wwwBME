@@ -11,10 +11,10 @@ public class ServicesPost implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     JsonObject data = new JsonObject();
-    data.addProperty("first_name", "Brandon");
-    data.addProperty("last_name", "Muñeton");
+    data.addProperty("first_name", "BrandonSophos");
+    data.addProperty("last_name", "MuñetonSophos");
     data.addProperty("gender", "male");
-    data.addProperty("email", "SophostestBME@test.com");
+    data.addProperty("email", "BrandonMuñetonSophostestBME@test.com");
     data.addProperty("status", "active");
     actor.attemptsTo(
         Post.to("public-api/users").with(request -> request.headers("Accept", "application/json")
