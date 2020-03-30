@@ -1,0 +1,52 @@
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.90")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+ext{
+    serenityVersion = '2.0.90'
+    serenityCucumberVersion = '1.9.49'
+}
+
+dependencies {
+
+    testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.9.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.7'
+    testImplementation 'org.hamcrest:hamcrest-core:1.3'
+    compile group: 'net.serenity-bdd', name: 'serenity-ensure', version: '2.0.49'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
+    compile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.0.90'
+    compile "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+}
+
+test {
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+    systemProperty "enviroment", System.getProperty("enviroment")
+}
+
+gradle.startParameter.continueOnFailure = true
