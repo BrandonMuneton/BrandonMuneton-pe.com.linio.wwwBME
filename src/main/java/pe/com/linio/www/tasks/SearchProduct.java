@@ -1,4 +1,4 @@
-package pe.com.linio.www.tasks.web;
+package pe.com.linio.www.tasks;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static pe.com.linio.www.userinterfaces.HomePageElements.SEARCH_BAR;

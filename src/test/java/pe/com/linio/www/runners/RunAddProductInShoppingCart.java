@@ -7,8 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features/add_product_in_shopping_cart.feature",
-    glue = "pe.com.linio.www.stepdefinitions.shoppingCart",
-    tags = "@AddingTechnologicalProductsToTheShoppingCart",
+    glue = "pe.com.linio.www.stepdefinitions",
     snippets = SnippetType.CAMELCASE)
 public class RunAddProductInShoppingCart {
 

@@ -1,6 +1,7 @@
-package pe.com.linio.www.tasks.web;
+package pe.com.linio.www.tasks;
 
 import static pe.com.linio.www.userinterfaces.ProductsPageElements.ADD_TO_CART;
+import static pe.com.linio.www.userinterfaces.ProductsPageElements.GO_TO_SHOPPING_CART;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -20,24 +21,19 @@ public class AddProduct implements Task {
     this.amount = amount;
     this.needSize = false;
   }
-  
+
   public AddProduct(String amount, String size) {
-	    this.amount = amount;
-	    this.size = size;
-	    this.needSize = true;
-	  }
+    this.amount = amount;
+    this.size = size;
+    this.needSize = true;
+  }
 
   public static AddProduct toShoppingCart(String amount, String size) {
     return Tasks.instrumented(AddProduct.class, amount, size);
   }
-  
-  public static AddProduct toShoppingCart(String amount) {
-	    return Tasks.instrumented(AddProduct.class, amount);
-  }
 
-  public AddProduct needSize(String size) {
-    this.needSize = true;
-    return this;
+  public static AddProduct toShoppingCart(String amount) {
+    return Tasks.instrumented(AddProduct.class, amount);
   }
 
   @Override
@@ -45,9 +41,9 @@ public class AddProduct implements Task {
     actor.attemptsTo(
         SelectInTheListAmount.theOption(amount),
         Check.whether(needSize).andIfSo(
-            SelectInTheListSize.theOption(size)
-        ),
-        Click.on(ADD_TO_CART)
+            SelectInTheListSize.theOption(size)),
+        Click.on(ADD_TO_CART),
+        Click.on(GO_TO_SHOPPING_CART)
     );
   }
 }

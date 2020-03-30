@@ -1,4 +1,4 @@
-package pe.com.linio.www.util.web;
+package pe.com.linio.www.util;
 
 import java.util.ResourceBundle;
 

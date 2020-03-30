@@ -1,7 +1,7 @@
-package pe.com.linio.www.tasks.web;
+package pe.com.linio.www.tasks;
 
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
-import static pe.com.linio.www.userinterfaces.HomePageElements.SEARCH_BAR;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static pe.com.linio.www.userinterfaces.ProductsPageElements.PRODUCT_TITLE;
 import static pe.com.linio.www.userinterfaces.ProductsPageElements.PRODUCT_TO_SELECT;
 
 import net.serenitybdd.screenplay.Actor;
@@ -26,6 +26,6 @@ public class SelectProduct implements Task {
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
         Click.on(PRODUCT_TO_SELECT.of(product)),
-        WaitUntil.the(SEARCH_BAR, isEnabled()));
+        WaitUntil.the(PRODUCT_TITLE.of(product), isVisible()));
   }
 }
